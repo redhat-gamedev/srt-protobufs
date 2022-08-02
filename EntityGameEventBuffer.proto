@@ -27,11 +27,11 @@ message EntityGameEventBuffer
 	*/
 	enum EntityGameEventBufferObjectType
 	{
-		UNKNOWN = 0;  // TODO this is in scope of message, duplicate will flag linter
+		UNKNOWN_OBJ = 0;  // TODO this is in scope of message, duplicate will flag linter
 		PLAYER = 1;
 		MISSILE = 2;
 	}
-	required EntityGameEventBufferObjectType objectType = 2 [default = UNKNOWN];
+	required EntityGameEventBufferObjectType objectType = 2 [default = UNKNOWN_OBJ];
 
 	// unique id of the event
 	required string UUID = 3;

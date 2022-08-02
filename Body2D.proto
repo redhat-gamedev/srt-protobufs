@@ -19,7 +19,7 @@ message Kinematic {
   optional string uuid = 1;                  // only used if the entity has multiple bodies
   optional float absolute_velocity = 2;      // speed of the body
   optional float absolute_velocity_max = 3;  // allows for specifying max speed
-  optional float absolute_velocity_min = 3;  // allows for specifying min speed
-  optional Vector2 position = 4;             // position of the body
-  optional float rotation_degrees = 5;       // previously called "angle"
+  optional float absolute_velocity_min = 4;  // allows for specifying min speed
+  optional Vector2 position = 5;             // position of the body
+  optional float rotation_degrees = 6;       // previously called "angle"
 }
