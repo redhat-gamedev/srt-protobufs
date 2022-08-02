@@ -2,14 +2,15 @@ name: main branch linter
 on:
   pull_request:
     branches: [ "main" ]
+  push:
+    branches: [ "main" ]
 
   # allow manual runs too
   workflow_dispatch:
 
 jobs:
-  lint-and-check-for-breaking:
+  lint-the-proto-files:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v3
       - uses: bufbuild/buf-setup-action@v0.5.0

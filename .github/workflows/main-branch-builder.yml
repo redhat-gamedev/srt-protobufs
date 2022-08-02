@@ -2,6 +2,8 @@ name: main branch builder
 on:
   pull_request:
     branches: [ "main" ]
+  push:
+    branches: [ "main" ]
 
   # allow manual runs too
   workflow_dispatch:
