@@ -1,0 +1,54 @@
+syntax = "proto2";
+package redhatgamedev.srt;
+import "box2d.proto"; // TODO move to Body2D
+
+/* 
+	EntityGameEventBuffer is a message nested with in a GameEvent message
+	It will be sent from the server to provide details about entities on the server.
+   
+	Initially this is just for player ships and fired missiles, but might grow in
+	the future as more game entities become part of the gameplay.
+*/
+message EntityGameEventBuffer
+{
+	// what event occured
+	enum EntityGameEventBufferType
+	{
+    	UNKNOWN = 0;
+		CREATE = 1;
+    	RETRIEVE = 2;
+		UPDATE = 3;
+    	DESTROY = 4;
+	}
+	required EntityGameEventBufferType type = 1 [default = UNKNOWN];
+
+	/* 
+		What object type did the event occur for?
+	*/
+	enum EntityGameEventBufferObjectType
+	{
+		UNKNOWN = 0;  // TODO this is in scope of message, duplicate will flag linter
+		PLAYER = 1;
+		MISSILE = 2;
+	}
+	required EntityGameEventBufferObjectType objectType = 2 [default = UNKNOWN];
+
+	// unique id of the event
+	required string UUID = 3;
+
+	// if the object in question belongs to someone, specify its owner here
+	// for example, a missile belongs to a specific player
+	optional string ownerUUID = 4;
+
+	// the body physics data for the event
+	optional box2d.PbBody body = 5;  // TODO move to Body2D.Kinematic
+
+	// hitpoints remaining for the entity
+	optional int32 hitpoints = 6;
+
+	// milliseconds of lifetime remaining (for missiles this is when they explode)
+	optional int32 lifetime_remaining = 7; 
+	
+	// how to skin this entity (unique ID to lookup for ships and missle sprites)
+	optional string skin_uuid = 8;
+}

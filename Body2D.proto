@@ -1,0 +1,25 @@
+syntax = "proto2";
+package Body2D;
+
+// Math classes
+message Vector2 {
+  required float x = 1;
+  required float y = 2;
+}
+
+/*
+  The Body class represents a physical body.
+  It is currently as simple as possible more info will be
+  added as the game evolves. 
+  
+  Please see here for a reference for potential fields: 
+  https://docs.godotengine.org/en/stable/classes/class_kinematicbody2d.html#class-kinematicbody2d
+*/
+message Kinematic {
+  optional string uuid = 1;                  // only used if the entity has multiple bodies
+  optional float absolute_velocity = 2;      // speed of the body
+  optional float absolute_velocity_max = 3;  // allows for specifying max speed
+  optional float absolute_velocity_min = 3;  // allows for specifying min speed
+  optional Vector2 position = 4;             // position of the body
+  optional float rotation_degrees = 5;       // previously called "angle"
+}

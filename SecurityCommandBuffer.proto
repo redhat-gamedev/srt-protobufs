@@ -1,0 +1,34 @@
+syntax = "proto2";
+package redhatgamedev.srt;
+
+/* 
+	JoinSecurityCommandBuffer holds details of the join command
+*/
+message JoinSecurityCommandBuffer
+{
+}
+
+/* 
+	LeaveSecurityCommandBuffer holds details of the leave command
+*/
+message LeaveSecurityCommandBuffer
+{
+    required string UUID = 1;
+}
+
+/* 
+	SecurityCommandBuffer wraps the join or leave command buffers together
+*/
+message SecurityCommandBuffer
+{
+	enum SecurityCommandBufferType
+	{
+        UNKNOWN = 0;
+		JOIN = 1;
+		LEAVE = 2;
+	}
+	required SecurityCommandBufferType type = 1;
+	optional string UUID = 2;
+    optional JoinSecurityCommandBuffer joinSecurityCommandBuffer = 3;
+    optional LeaveSecurityCommandBuffer leaveSecurityCommandBuffer = 4;
+}
