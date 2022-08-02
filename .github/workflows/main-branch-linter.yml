@@ -9,26 +9,8 @@ on:
 jobs:
   lint-and-check-for-breaking:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v3
       - uses: bufbuild/buf-setup-action@v0.5.0
       - uses: bufbuild/buf-lint-action@v1
-      - uses: bufbuild/buf-breaking-action@v1
-        with:
-          against: 'https://github.com/${{ github.repository }}.git#branch=main'
-
-  gen-csharp:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        dotnet-version: ['3.0', '3.1.x', '5.0.x']
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Install dependencies
-        run: dotnet tool install --global protobuf-net.Protogen --version 3.0.101
-      - name: generate csharp code
-        run: protogen --csharp_out=. *.proto
