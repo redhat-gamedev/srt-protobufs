@@ -41,3 +41,13 @@ jobs:
           dotnet tool install --local protobuf-net.Protogen --version 3.1.17
       - name: generate csharp code
         run: dotnet tool run protogen --csharp_out=./generated/csharp *.proto
+            # Commit and push all changed files.
+      - name: git commit generated code
+        # only run on main branch push (after pull request merged)
+        if: github.event_name == 'push'
+        run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "noreply@redhat.com"
+          git pull
+          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push
