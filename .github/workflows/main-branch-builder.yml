@@ -10,14 +10,13 @@ on:
     inputs:
       force_breaking:
         type: boolean
-        description: 'Force codegen even with breaking changes'
+        description: 'TODO - force codegen even with breaking changes'
         required: false
         default: false
 
 jobs:
   check-for-breaking:
     runs-on: ubuntu-latest
-    continue-on-error: ${{ inputs.force_breaking }}
     steps:
       - uses: actions/checkout@v3
       - uses: bufbuild/buf-setup-action@v0.5.0
