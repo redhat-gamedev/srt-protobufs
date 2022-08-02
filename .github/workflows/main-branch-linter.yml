@@ -1,0 +1,20 @@
+name: main branch linter
+on:
+  pull_request:
+    branches: [ "main" ]
+
+  # allow manual runs too
+  workflow_dispatch:
+
+jobs:
+  validate-protos:
+    runs-on: ubuntu-latest
+    steps:
+      # Run `git checkout`
+      - uses: actions/checkout@v2
+      # Install the `buf` CLI
+      - uses: bufbuild/buf-setup-action@v0.5.0
+      # Perform breaking change detection against the `main` branch
+      - uses: bufbuild/buf-breaking-action@v1
+        with:
+          against: "https://github.com/redhat-gamedev/srt-protobufs.git#branch=main"
