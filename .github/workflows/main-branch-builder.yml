@@ -46,8 +46,8 @@ jobs:
         # only run on main branch push (after pull request merged)
         if: github.event_name == 'push'
         run: |
-          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-          git config --global user.email "noreply@redhat.com"
+          git config --global user.name "autocommit"
+          git config --global user.email "autocommit@noreply.redhat.com"
           git pull
-          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git commit -a -m "autocommit from CI job"
           git push
