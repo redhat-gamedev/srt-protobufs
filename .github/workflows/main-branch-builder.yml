@@ -49,7 +49,6 @@ jobs:
         run: |
           git config --global user.name "autocommit"
           git config --global user.email "autocommit@noreply.redhat.com"
-          git pull
           git add ./generated/csharp
-          git commit -a -m "autocommit from CI job"
+          git commit --allow-empty -a -m "autocommit from CI job"
           git push
