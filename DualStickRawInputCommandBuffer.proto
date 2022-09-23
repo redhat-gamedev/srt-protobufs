@@ -10,4 +10,5 @@ message DualStickRawInputCommandBuffer
 {
     required box2d.PbVec2 pbv2Move = 1;  // TODO move to Body2D.Vector
     required box2d.PbVec2 pbv2Shoot = 2; // TODO move to Body2D.Vector
+    optional string missileUUID = 3; // allows the client to suggest a UUID for the missile
 }
