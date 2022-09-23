@@ -22,6 +22,17 @@ namespace redhatgamedev.srt
         [global::ProtoBuf.ProtoMember(2, IsRequired = true)]
         public global::Box2d.PbVec2 pbv2Shoot { get; set; }
 
+        [global::ProtoBuf.ProtoMember(3)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string missileUUID
+        {
+            get => __pbn__missileUUID ?? "";
+            set => __pbn__missileUUID = value;
+        }
+        public bool ShouldSerializemissileUUID() => __pbn__missileUUID != null;
+        public void ResetmissileUUID() => __pbn__missileUUID = null;
+        private string __pbn__missileUUID;
+
     }
 
 }
