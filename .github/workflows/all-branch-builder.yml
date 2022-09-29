@@ -20,8 +20,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: bufbuild/buf-setup-action@v0.5.0
       - uses: bufbuild/buf-breaking-action@v1
-#        with:
-#          against: 'https://github.com/${{ github.repository }}.git#branch=main'
+        with:
+          against: 'https://github.com/${{ github.repository }}.git#branch=main'
 
   gen-csharp:
     runs-on: ubuntu-latest
