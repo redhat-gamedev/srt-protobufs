@@ -1,6 +1,7 @@
 name: all branch linter
 on:
   pull_request:
+      branches: [ "main" ]
   push:
 
   # allow manual runs too
