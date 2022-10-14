@@ -1,7 +1,7 @@
 // Sent to clients to tell them about what's happening
 
 syntax = "proto3";
-package redhatgamedev.srt.v0;
+package redhatgamedev.srt.v1;
 
 message GameEvent {
   enum GameEventType {

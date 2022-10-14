@@ -1,6 +1,6 @@
 // received from clients telling us what the player did
 syntax = "proto3";
-package redhatgamedev.srt.v0;
+package redhatgamedev.srt.v1;
 
 message Command {
   enum CommandType {

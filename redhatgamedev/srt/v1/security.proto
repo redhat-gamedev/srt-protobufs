@@ -2,7 +2,7 @@
 // announce type is used for server telling clients about game defaults
 
 syntax = "proto3";
-package redhatgamedev.srt.v0;
+package redhatgamedev.srt.v1;
 
 message Security {
   enum SecurityType {
