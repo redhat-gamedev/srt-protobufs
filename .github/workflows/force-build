@@ -1,0 +1,32 @@
+name: all branch builder
+on:
+  workflow_dispatch:
+
+jobs:
+  gen-csharp:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: ['6.0.x']
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install dependencies
+        run: |
+          dotnet new tool-manifest
+          dotnet tool install --local protobuf-net.Protogen --version 3.1.17
+      - name: generate csharp code
+        run: dotnet tool run protogen --csharp_out=./generated/csharp *.proto
+            # Commit and push all changed files.
+      - name: git commit generated code
+        # only run on main branch push (after pull request merged)
+        if: github.event_name == 'push'
+        run: |
+          git config --global user.name "autocommit"
+          git config --global user.email "autocommit@noreply.redhat.com"
+          git add ./generated/csharp
+          git commit --allow-empty -a -m "autocommit from CI job"
+          git push
