@@ -1,7 +1,10 @@
 name: force build
 on:
   workflow_dispatch:
-
+    inputs:
+      version:
+        description: 'Type something in here if you want'
+        required: false
 jobs:
   gen-csharp:
     runs-on: ubuntu-latest
