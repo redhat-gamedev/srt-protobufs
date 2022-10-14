@@ -1,0 +1,30 @@
+// Sent to clients to tell them about what's happening
+
+syntax = "proto3";
+package redhatgamedev.srt;
+
+message GameEvent {
+  enum GameEventType {
+    GAME_EVENT_TYPE_UNSPECIFIED = 0;
+    GAME_EVENT_TYPE_CREATE = 1;
+    GAME_EVENT_TYPE_RETRIEVE = 2;
+    GAME_EVENT_TYPE_UPDATE = 3;
+    GAME_EVENT_TYPE_DESTROY = 4;
+  }
+
+  enum GameObjectType {
+    GAME_OBJECT_TYPE_UNSPECIFIED = 0;
+    GAME_OBJECT_TYPE_PLAYER = 1;
+    GAME_OBJECT_TYPE_MISSILE = 2;
+  }
+
+  GameEventType game_event_type = 1;
+  string uuid = 2;
+  string authtoken = 3;
+
+  GameObjectType game_object_type = 6;
+  sint32 position_x = 7;
+  sint32 position_y = 8;
+  float absolute_velocity = 9;
+  float angle = 10;
+}
