@@ -23,8 +23,9 @@ message GameEvent {
   string authtoken = 3;
 
   GameObjectType game_object_type = 6;
-  sint32 position_x = 7;
-  sint32 position_y = 8;
-  float absolute_velocity = 9;
-  float angle = 10;
+  string owner_uuid = 7;
+  sint32 position_x = 8;
+  sint32 position_y = 9;
+  float absolute_velocity = 10;
+  float angle = 11;
 }
