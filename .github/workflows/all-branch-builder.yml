@@ -41,7 +41,7 @@ jobs:
           dotnet tool install --local protobuf-net.Protogen --version 3.1.17
         # recursion doesn't work in protogen so do this instead
       - name: generate csharp code
-        run: find -name '*.proto' | dotnet tool run protogen --csharp_out=./generated/csharp
+        run: find -name '*.proto' | xargs dotnet tool run protogen --csharp_out=./generated/csharp
         # Commit and push all changed files.
       - name: git commit generated code
         # only run on main branch push (after pull request merged)

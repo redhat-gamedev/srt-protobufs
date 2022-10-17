@@ -25,7 +25,7 @@ jobs:
         run: rm -rf ./generated/csharp
         # recursion doesn't work in protogen so do this instead
       - name: generate csharp code
-        run: find -name '*.proto' | dotnet tool run protogen --csharp_out=./generated/csharp
+        run: find -name '*.proto' | xargs dotnet tool run protogen --csharp_out=./generated/csharp
       - name: git commit generated code
         run: |
           git config --global user.name "autocommit"
