@@ -1,8 +1,8 @@
 name: all branch linter
 on:
   pull_request:
+      types: [opened, reopened]
       branches: [ "main" ]
-  push:
 
   # allow manual runs too
   workflow_dispatch:
