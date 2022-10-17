@@ -1,0 +1,19 @@
+// received from clients telling us what the player did
+syntax = "proto3";
+package redhatgamedev.srt.v1;
+
+message Command {
+  enum CommandType {
+    COMMAND_TYPE_UNSPECIFIED = 0;
+    COMMAND_TYPE_MOVE = 1;
+    COMMAND_TYPE_SHOOT = 2;
+  }
+
+  CommandType command_type = 1;
+  string uuid = 2;
+  string authtoken = 3;
+
+  sint32 input_x = 6; // accel or decel (up/down)
+  sint32 input_y = 7; // left/right
+  string missile_uuid = 8; // client suggested UUID for missile
+}

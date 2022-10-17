@@ -1,0 +1,27 @@
+// sent and received by clients and servers
+// announce type is used for server telling clients about game defaults
+
+syntax = "proto3";
+package redhatgamedev.srt.v1;
+
+message Security {
+  enum SecurityType {
+    SECURITY_TYPE_UNSPECIFIED = 0;
+    SECURITY_TYPE_ANNOUNCE = 1;
+    SECURITY_TYPE_JOIN = 2;
+    SECURITY_TYPE_LEAVE = 3;
+  }
+
+  SecurityType security_type = 1;
+  string uuid = 2;
+  string authtoken = 3;
+
+  float ship_thrust = 6;     // Default ship thrust
+  float max_speed = 7;       // Default ship max speed
+  float rotation_thrust = 8; // Default rotation speed
+  float hit_points = 9;      // Default ship HP
+  float missile_speed = 10;  // Default missile speed
+  float missile_life = 11;   // Default missile expiration
+  float missile_damage = 12; // Default missile damage
+  float missile_reload = 13; // Default missile reload time
+}
