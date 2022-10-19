@@ -1,9 +1,9 @@
 # srt-protobufs
 Space Rings Thing Protocol Buffers (definitions of data for client server comms)
 
-[![main branch linter](https://github.com/redhat-gamedev/srt-protobufs/actions/workflows/main-branch-linter.yml/badge.svg)](https://github.com/redhat-gamedev/srt-protobufs/actions/workflows/main-branch-linter.yml)
+[![linter](https://github.com/redhat-gamedev/srt-protobufs/actions/workflows/all-branch-linter.yml/badge.svg)](https://github.com/redhat-gamedev/srt-protobufs/actions/workflows/all-branch-linter.yml)
 
-[![main branch builder](https://github.com/redhat-gamedev/srt-protobufs/actions/workflows/main-branch-builder.yml/badge.svg)](https://github.com/redhat-gamedev/srt-protobufs/actions/workflows/main-branch-builder.yml)
+[![builder](https://github.com/redhat-gamedev/srt-protobufs/actions/workflows/all-branch-builder.yml/badge.svg)](https://github.com/redhat-gamedev/srt-protobufs/actions/workflows/all-branch-builder.yml)
 
 <img src="icon.png" alt="icon" width="200"/>
 
