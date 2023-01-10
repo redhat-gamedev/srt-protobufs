@@ -46,6 +46,9 @@ namespace redhatgamedev.srt.v1
         [global::ProtoBuf.ProtoMember(11, Name = @"angle")]
         public float Angle { get; set; }
 
+        [global::ProtoBuf.ProtoMember(12, Name = @"hit_points", DataFormat = global::ProtoBuf.DataFormat.ZigZag)]
+        public int HitPoints { get; set; }
+
         [global::ProtoBuf.ProtoContract()]
         public enum GameEventType
         {
