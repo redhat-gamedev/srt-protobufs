@@ -28,4 +28,5 @@ message GameEvent {
   sint32 position_y = 9;
   float absolute_velocity = 10;
   float angle = 11;
+  sint32 hit_points = 12;
 }
