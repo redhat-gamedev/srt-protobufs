@@ -21,6 +21,7 @@ message GameEvent {
   GameEventType game_event_type = 1;
   string uuid = 2;
   string authtoken = 3;
+  uint32 sequence = 4;
 
   GameObjectType game_object_type = 6;
   string owner_uuid = 7;
