@@ -10,6 +10,7 @@ message Security {
     SECURITY_TYPE_ANNOUNCE = 1;
     SECURITY_TYPE_JOIN = 2;
     SECURITY_TYPE_LEAVE = 3;
+    SECURITY_TYPE_HEARTBEAT = 4;
   }
 
   SecurityType security_type = 1;
