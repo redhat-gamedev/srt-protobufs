@@ -27,6 +27,9 @@ namespace redhatgamedev.srt.v1
         [global::System.ComponentModel.DefaultValue("")]
         public string Authtoken { get; set; } = "";
 
+        [global::ProtoBuf.ProtoMember(4, Name = @"sequence")]
+        public uint Sequence { get; set; }
+
         [global::ProtoBuf.ProtoMember(6)]
         public GameObjectType game_object_type { get; set; }
 

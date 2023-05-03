@@ -62,6 +62,8 @@ namespace redhatgamedev.srt.v1
             SecurityTypeJoin = 2,
             [global::ProtoBuf.ProtoEnum(Name = @"SECURITY_TYPE_LEAVE")]
             SecurityTypeLeave = 3,
+            [global::ProtoBuf.ProtoEnum(Name = @"SECURITY_TYPE_HEARTBEAT")]
+            SecurityTypeHeartbeat = 4,
         }
 
     }
