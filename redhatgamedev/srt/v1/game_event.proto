@@ -18,16 +18,20 @@ message GameEvent {
     GAME_OBJECT_TYPE_MISSILE = 2;
   }
 
-  GameEventType game_event_type = 1;
-  string uuid = 2;
-  string authtoken = 3;
-  uint32 sequence = 4;
+  message GameObject {
+    string uuid = 2;
+    string authtoken = 3;
 
-  GameObjectType game_object_type = 6;
-  string owner_uuid = 7;
-  sint32 position_x = 8;
-  sint32 position_y = 9;
-  float absolute_velocity = 10;
-  float angle = 11;
-  sint32 hit_points = 12;
+    GameObjectType game_object_type = 6;
+    string owner_uuid = 7;
+    sint32 position_x = 8;
+    sint32 position_y = 9;
+    float absolute_velocity = 10;
+    float angle = 11;
+    sint32 hit_points = 12;
+  }
+
+  uint32 sequence = 1;
+  GameEventType game_event_type = 2;
+  repeated GameObject game_objects = 3;
 }
