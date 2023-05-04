@@ -16,41 +16,53 @@ namespace redhatgamedev.srt.v1
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
-        [global::ProtoBuf.ProtoMember(1)]
-        public GameEventType game_event_type { get; set; }
-
-        [global::ProtoBuf.ProtoMember(2, Name = @"uuid")]
-        [global::System.ComponentModel.DefaultValue("")]
-        public string Uuid { get; set; } = "";
-
-        [global::ProtoBuf.ProtoMember(3, Name = @"authtoken")]
-        [global::System.ComponentModel.DefaultValue("")]
-        public string Authtoken { get; set; } = "";
-
-        [global::ProtoBuf.ProtoMember(4, Name = @"sequence")]
+        [global::ProtoBuf.ProtoMember(1, Name = @"sequence")]
         public uint Sequence { get; set; }
 
-        [global::ProtoBuf.ProtoMember(6)]
-        public GameObjectType game_object_type { get; set; }
+        [global::ProtoBuf.ProtoMember(2)]
+        public GameEventType game_event_type { get; set; }
 
-        [global::ProtoBuf.ProtoMember(7, Name = @"owner_uuid")]
-        [global::System.ComponentModel.DefaultValue("")]
-        public string OwnerUuid { get; set; } = "";
+        [global::ProtoBuf.ProtoMember(3, Name = @"game_objects")]
+        public global::System.Collections.Generic.List<GameObject> GameObjects { get; } = new global::System.Collections.Generic.List<GameObject>();
 
-        [global::ProtoBuf.ProtoMember(8, Name = @"position_x", DataFormat = global::ProtoBuf.DataFormat.ZigZag)]
-        public int PositionX { get; set; }
+        [global::ProtoBuf.ProtoContract()]
+        public partial class GameObject : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
-        [global::ProtoBuf.ProtoMember(9, Name = @"position_y", DataFormat = global::ProtoBuf.DataFormat.ZigZag)]
-        public int PositionY { get; set; }
+            [global::ProtoBuf.ProtoMember(2, Name = @"uuid")]
+            [global::System.ComponentModel.DefaultValue("")]
+            public string Uuid { get; set; } = "";
 
-        [global::ProtoBuf.ProtoMember(10, Name = @"absolute_velocity")]
-        public float AbsoluteVelocity { get; set; }
+            [global::ProtoBuf.ProtoMember(3, Name = @"authtoken")]
+            [global::System.ComponentModel.DefaultValue("")]
+            public string Authtoken { get; set; } = "";
 
-        [global::ProtoBuf.ProtoMember(11, Name = @"angle")]
-        public float Angle { get; set; }
+            [global::ProtoBuf.ProtoMember(6, Name = @"game_object_type")]
+            public GameEvent.GameObjectType GameObjectType { get; set; }
 
-        [global::ProtoBuf.ProtoMember(12, Name = @"hit_points", DataFormat = global::ProtoBuf.DataFormat.ZigZag)]
-        public int HitPoints { get; set; }
+            [global::ProtoBuf.ProtoMember(7, Name = @"owner_uuid")]
+            [global::System.ComponentModel.DefaultValue("")]
+            public string OwnerUuid { get; set; } = "";
+
+            [global::ProtoBuf.ProtoMember(8, Name = @"position_x", DataFormat = global::ProtoBuf.DataFormat.ZigZag)]
+            public int PositionX { get; set; }
+
+            [global::ProtoBuf.ProtoMember(9, Name = @"position_y", DataFormat = global::ProtoBuf.DataFormat.ZigZag)]
+            public int PositionY { get; set; }
+
+            [global::ProtoBuf.ProtoMember(10, Name = @"absolute_velocity")]
+            public float AbsoluteVelocity { get; set; }
+
+            [global::ProtoBuf.ProtoMember(11, Name = @"angle")]
+            public float Angle { get; set; }
+
+            [global::ProtoBuf.ProtoMember(12, Name = @"hit_points", DataFormat = global::ProtoBuf.DataFormat.ZigZag)]
+            public int HitPoints { get; set; }
+
+        }
 
         [global::ProtoBuf.ProtoContract()]
         public enum GameEventType
